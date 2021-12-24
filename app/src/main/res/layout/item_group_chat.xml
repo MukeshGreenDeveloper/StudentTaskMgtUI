@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imagUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="95dp"
+        android:src="@drawable/sample_user" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@+id/imagUser"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansregular"
+            android:text="Theodore Howarth"
+            android:textColor="@color/color_pink" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/opensansregular"
+            android:text="Anyone have any answers for the exam?"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/opensanssemibold"
+            android:gravity="end"
+            android:text="22:20"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_view"
+            android:background="@drawable/curved_left_top_right_pink_bg"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/docTypeImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_document" />
+
+            <TextView
+                android:id="@+id/docName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/docTypeImg"
+                android:fontFamily="@font/opensansregular"
+                android:text="Exam_Tasks.word"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/docName"
+                android:layout_marginTop="16dp"
+                android:drawableRight="@drawable/ic_chat_seen_tick"
+                android:drawablePadding="4dp"
+                android:fontFamily="@font/opensanssemibold"
+                android:gravity="end"
+                android:text="22:20"
+                android:textColor="@color/color_gray"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

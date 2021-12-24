@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/imgTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp">
+
+                <ImageView
+                    android:id="@+id/layoutLock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_lock" />
+
+                <ImageView
+                    android:id="@+id/layoutball1"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toStartOf="@+id/layoutLock"
+                    android:src="@drawable/circle_gray" />
+
+                <ImageView
+                    android:id="@+id/layoutball2"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_toEndOf="@+id/layoutLock"
+                    android:src="@drawable/circle_gray" />
+
+                <ImageView
+                    android:id="@+id/layoutball3"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_below="@+id/layoutball2"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="62dp"
+                    android:layout_toEndOf="@+id/layoutLock"
+                    android:src="@drawable/circle_gray" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgTop"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/poppinssemibold"
+                android:text="@string/welcome_to_satify"
+                android:textColor="@color/color_pink"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtdescTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titleText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppinslight"
+                android:text="@string/keep_your_data_safe" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtdescTitle"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_filed_bg"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="6dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        app:boxBackgroundColor="@color/edit_field_color"
+                        app:boxBackgroundMode="filled"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp">
+
+                        <EditText
+                            style="@style/editTextTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_filed_bg"
+                        android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="6dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/password"
+                            app:boxBackgroundColor="@color/edit_field_color"
+                            app:boxBackgroundMode="filled"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp">
+
+                            <EditText
+                                android:id="@+id/editTextPwd"
+                                style="@style/editTextTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edit_text_selector"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/enableInputType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="16sp"
+                        android:paddingTop="12dp"
+                        android:src="@drawable/ic_eye" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    style="@style/buttonTheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/login"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/color_pink" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinslight"
+                        android:text="@string/don_t_have_an_account"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppinslight"
+                        android:text="@string/register"
+                        android:textColor="@color/color_pink"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

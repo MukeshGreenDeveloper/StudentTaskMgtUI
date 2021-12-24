@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="selectedOption"
+            type="Integer" />
+        <import type="android.view.View" />
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/lyoutOFBalls"
+    android:visibility="gone"
+    android:alpha="0.5">
+
+    <ImageView
+        android:id="@+id/layoutball1"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/color_gray"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="34dp"
+        android:src="@drawable/circle_gray" />
+
+    <ImageView
+        android:id="@+id/layoutball2"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/color_gray"
+        android:src="@drawable/circle_gray" />
+
+    <ImageView
+        android:id="@+id/layoutball3"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:backgroundTint="@color/color_gray"
+        android:layout_below="@+id/layoutball1"
+        android:layout_marginStart="92dp"
+        android:src="@drawable/circle_gray" />
+</RelativeLayout>
+
+</layout>

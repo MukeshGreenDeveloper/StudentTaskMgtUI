@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="mukesh.login.ChatVM" />
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ChatActivity">
+
+        <LinearLayout
+            android:id="@+id/layoutTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="@dimen/margin_top_view"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:id="@+id/txtSubjectName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/opensansregular"
+                android:text="Computer Science"
+                android:textColor="@color/black"
+                android:textSize="21dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_options_dot" />
+        </LinearLayout>
+
+        <!--<ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutTitle"
+            android:layout_above="@+id/layoutBottomSend"
+            android:background="@drawable/chat_bg_selector"
+            android:layout_marginTop="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <include layout="@layout/item_group_chat" />
+
+                <include layout="@layout/item_group_chat" />
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+
+    &lt;!&ndash;            <include layout="@layout/item_group_chat" />&ndash;&gt;
+            </LinearLayout>
+
+        </ScrollView>-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/layoutFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layoutBottomSend"
+            android:layout_below="@+id/layoutTitle"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="-20dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTitle"
+            android:layout_marginTop="@dimen/margin_top_view"
+            android:background="@drawable/curved_bottom_white_bg">
+
+            <LinearLayout
+                android:id="@+id/layoutInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Information"
+                    android:textColor="@{viewModel.selectedOption==0?@color/color_pink:@color/edit_field_hint}"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/line_curved"
+                    android:backgroundTint="@color/color_pink"
+                    android:visibility="@{viewModel.selectedOption==0?View.VISIBLE:View.INVISIBLE}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/nunitoregular"
+                    android:textColor="@{viewModel.selectedOption==1?@color/color_pink:@color/edit_field_hint}"
+                    android:text="Files"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/line_curved"
+                    android:backgroundTint="@color/color_pink"
+                    android:visibility="@{viewModel.selectedOption==1?View.VISIBLE:View.INVISIBLE}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutGroupChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/nunitoregular"
+                    android:text="Group Chat"
+                    android:textColor="@{viewModel.selectedOption==2?@color/color_pink:@color/edit_field_hint}"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="@{viewModel.selectedOption==2?View.VISIBLE:View.INVISIBLE}"
+                    android:background="@drawable/line_curved"
+                    android:backgroundTint="@color/color_pink" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBottomSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/curved_top_white_bg"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_add_files" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/rect_curved_less"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/editMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/imgSend"
+                    android:background="@null"
+                    android:fontFamily="@font/nunitoregular"
+                    android:hint="@string/text_here"
+                    android:imeOptions="actionDone"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:paddingStart="8dp"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/imgSend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_send" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_mic" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

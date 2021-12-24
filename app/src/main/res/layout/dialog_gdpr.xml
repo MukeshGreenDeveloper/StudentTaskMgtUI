@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="selectedOption"
+            type="Integer" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="70dp"
+            android:layout_height="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/line_curved" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppinssemibold"
+            android:text="GDPR Settings"
+            android:textColor="@color/color_pink"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/titleDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="25dp"
+            android:fontFamily="@font/poppinslight"
+            android:gravity="center"
+            android:text="Please confirm that you accept receiving content in the following ways:"
+            android:textColor="@color/text_color" />
+
+        <LinearLayout
+            android:id="@+id/layoutMenus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleDesc"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/bg_ball_1"
+                        layout="@layout/layout_balls" /><!--
+                        android:visibility="@{selectedOption==1?View.VISIBLE:View.GONE}"-->
+
+                    <ImageView
+                        android:id="@+id/phoneImg"
+                        android:layout_width="50dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@{selectedOption==1?@drawable/ic_phone_blue:@drawable/ic_phone}" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtPush"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/curved_text_gray"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:paddingStart="32dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="32dp"
+                    android:paddingBottom="8dp"
+                    android:text="Push"
+                    android:textColor="@{selectedOption==1?@color/text_selected_color:@color/text_color}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/bg_ball_2"
+                        layout="@layout/layout_balls" /><!--
+                        android:visibility="@{selectedOption==2?View.VISIBLE:View.GONE}"-->
+
+                    <ImageView
+                        android:id="@+id/emailIMG"
+                        android:layout_width="50dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@{selectedOption==2?@drawable/ic_email_blue:@drawable/ic_email}" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/curved_text_gray"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:paddingStart="32dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="32dp"
+                    android:paddingBottom="8dp"
+                    android:text="Email"
+                    android:textColor="@{selectedOption==2?@color/text_selected_color:@color/text_color}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <include
+                        android:id="@+id/bg_ball_3"
+                        layout="@layout/layout_balls" /><!--
+                        android:visibility="@{selectedOption==3?View.VISIBLE:View.GONE}"-->
+
+                    <ImageView
+                        android:id="@+id/smsIMG"
+                        android:layout_width="50dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@{selectedOption==3?@drawable/ic_message_blue:@drawable/ic_message}" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtSMS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/curved_text_gray"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:paddingStart="32dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="32dp"
+                    android:paddingBottom="8dp"
+                    android:text="SMS"
+                    android:textColor="@{selectedOption==3?@color/text_selected_color:@color/text_color}" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnsaveSettings"
+            style="@style/buttonTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutMenus"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="32dp"
+            android:text="Save settings"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnsaveSettings"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/poppinslight"
+            android:text="Learn more"
+            android:textColor="@color/color_pink"
+            android:textSize="16dp" />
+    </RelativeLayout>
+</layout>

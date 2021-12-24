@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".HomeActivity">
+
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp">
+
+                <TextView
+                    android:id="@+id/welcomeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:fontFamily="@font/opensansregular"
+                    android:text="@string/welcome"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/welcomeNameTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/welcomeTxt"
+                    android:fontFamily="@font/nunitosemibold"
+                    android:text="Tamil selvan B"
+                    android:textColor="@color/black"
+                    android:textSize="23dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:src="@drawable/ic_bell" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/welcomeNameTxt"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="#DF3168"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/card_triange_bg" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingTop="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="12dp">
+
+                        <TextView
+                            android:id="@+id/examNear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Tamil selvan B"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:fontFamily="@font/mulishregular"
+                            android:text="7 days left"
+                            android:textColor="@color/white"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/txtSubjectName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/examNear"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/opensansregular"
+                            android:text="Computer Science"
+                            android:textColor="@color/white"
+                            android:textSize="21dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtSubjectName"
+                            android:layout_marginTop="30dp"
+                            android:src="@drawable/ic_avatars" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtSubjectName"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_toStartOf="@+id/change_notificaiton"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/ic_chat_white" />
+
+                        <ImageView
+                            android:id="@+id/change_notificaiton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtSubjectName"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="30dp"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/ic_arrow_bg" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/titleMyTodo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_subject"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:fontFamily="@font/nunitosemibold"
+                    android:text="My todo"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_subject"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:clickable="true"
+                    android:fontFamily="@font/nunitosemibold"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="Add +"
+                    android:textColor="@color/color_pink"
+                    android:textSize="19dp" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleMyTodo"
+                    android:scrollbars="none"
+                    android:layout_marginTop="@dimen/margin_top_view">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rect_curved_"
+                            android:backgroundTint="@color/color_green"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="30dp"
+                                android:src="@drawable/ic_calc" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/nunitosemibold"
+                                android:text="4"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/opensanssemibold"
+                                android:text="Math" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/rect_curved_"
+                            android:backgroundTint="@color/color_orange"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="30dp"
+                                android:src="@drawable/ic_bigdata" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/nunitosemibold"
+                                android:text="1"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/opensanssemibold"
+                                android:text="Big Data" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/rect_curved_"
+                            android:backgroundTint="@color/color_yellow"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="30dp"
+                                android:src="@drawable/ic_compass" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/nunitosemibold"
+                                android:text="24"
+                                android:textColor="@color/black"
+                                android:textSize="20dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/opensanssemibold"
+                                android:text="Web App" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/titleFutureExam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/horizontalScroll"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:fontFamily="@font/nunitosemibold"
+                    android:text="Future Exams"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleFutureExam"
+                    android:layout_marginTop="@dimen/margin_top_view">
+
+                    <TextView
+                        android:id="@+id/titleMoth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="DEC"
+                        android:textSize="19dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleMoth"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/lines_bg" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/layout_maths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_toEndOf="@+id/titleMoth"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="4dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imgLeftGreen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/curved_left_green_bg" />
+
+                            <TextView
+                                android:id="@+id/txtDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_toEndOf="@+id/imgLeftGreen"
+                                android:fontFamily="@font/opensansregular"
+                                android:text="27 December"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_toEndOf="@+id/txtDate"
+                                android:fontFamily="@font/opensansregular"
+                                android:text="• 14 days left"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtDate"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="30dp"
+                                android:layout_toEndOf="@+id/imgLeftGreen"
+                                android:fontFamily="@font/nunitosemibold"
+                                android:text="Mathemetica"
+                                android:textColor="@color/black"
+                                android:textSize="19dp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtDate"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="24dp"
+                                android:src="@drawable/ic_avatars" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layout_maths"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/margin_top_view"
+                        android:layout_marginBottom="?attr/actionBarSize"
+                        android:layout_toEndOf="@+id/titleMoth"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="4dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imgLeftOrange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/curved_left_orange_bg" />
+
+                            <TextView
+                                android:id="@+id/txtDate1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_toEndOf="@+id/imgLeftOrange"
+                                android:fontFamily="@font/opensansregular"
+                                android:text="30 December"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_toEndOf="@+id/txtDate1"
+                                android:fontFamily="@font/opensansregular"
+                                android:text="• 17 days left"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtDate1"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="30dp"
+                                android:layout_toEndOf="@+id/imgLeftOrange"
+                                android:fontFamily="@font/nunitosemibold"
+                                android:text="Big Data"
+                                android:textColor="@color/black"
+                                android:textSize="19dp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtDate1"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="24dp"
+                                android:src="@drawable/ic_avatars" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:cardBackgroundColor="@color/white_light"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_home" />
+
+                <ImageView
+                    android:id="@+id/calMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_callender" />
+
+                <ImageView
+                    android:id="@+id/clickChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_message_meu" />
+
+                <ImageView
+                    android:id="@+id/profileMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_profile" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

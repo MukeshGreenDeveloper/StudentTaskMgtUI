@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_marginStart="@dimen/margin_top_view">
+
+    <ImageView
+        android:id="@+id/imgSubject"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:src="@drawable/sample_book" />
+
+    <TextView
+        android:id="@+id/txtSubjectName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/imgSubject"
+        android:fontFamily="@font/nunitosemibold"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:text="Chemistry"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSubjectName1"
+        android:layout_marginStart="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp"
+        android:layout_toEndOf="@+id/imgSubject"
+        android:fontFamily="@font/nunitosemibold"
+        android:text="Progress: 40%" />
+
+</RelativeLayout>

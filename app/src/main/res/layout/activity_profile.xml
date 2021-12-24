@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+        name="viewModel"
+        type="mukesh.login.ChatVM" />
+</data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CalendarActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:scaleType="fitXY"
+            android:src="@drawable/gradient_cloud" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/profileIcon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/gradient_circle_stroke_pink"
+                    android:padding="6dp"
+                    android:src="@drawable/sample_user" />
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileIcon"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nunitosemibold"
+                    android:text="Maria L Joshi"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:padding="2dp"
+                        android:src="@drawable/ic_pin_black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/nunitoregular"
+                        android:text="India"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutInfos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layoutPlace"
+                    android:layout_marginTop="@dimen/margin_top_view">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_height" />
+
+                        <TextView
+                            android:id="@+id/txtCourse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/imgHeight"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:text="BCA"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtCourse"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_toEndOf="@+id/imgHeight"
+                            android:fontFamily="@font/nunitoregular"
+                            android:text="Course" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgDumble"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_dumble" />
+
+                        <TextView
+                            android:id="@+id/txtDept"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/imgDumble"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:text="Computer Science"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtDept"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_toEndOf="@+id/imgDumble"
+                            android:fontFamily="@font/nunitoregular"
+                            android:text="Dept" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgClock"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_sandclock" />
+
+                        <TextView
+                            android:id="@+id/txtAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/imgClock"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:text="22.4 Yrs"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtAge"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_toEndOf="@+id/imgClock"
+                            android:fontFamily="@font/nunitoregular"
+                            android:text="Age" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutActivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutInfos"
+                    android:layout_marginTop="@dimen/margin_top_view"
+                    android:background="@drawable/gradient_curved_top_gray"
+                    android:backgroundTint="@color/color_gray_light"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/titleActivity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="Activity"
+                        android:textColor="@color/black"
+                        android:textSize="17dp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:src="@drawable/ic_three_dot" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutMonths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/titleActivity"
+                        android:layout_marginTop="@dimen/margin_top_view">
+
+                        <TextView
+                            android:id="@+id/txtWeek"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@{viewModel.selectedModeMonth==0?@drawable/gradient_curved_left_pink:@drawable/gradient_curved_left_gray}"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:paddingLeft="24dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="24dp"
+                            android:paddingBottom="8dp"
+                            android:text="WEEK"
+                            android:textColor="@{viewModel.selectedModeMonth==0?@color/white:@color/text_color}" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line_curved"
+                            android:backgroundTint="@color/color_gray" />
+
+                        <TextView
+                            android:id="@+id/txtMonth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@{viewModel.selectedModeMonth==1?@drawable/gradient_no_curve_pink:@drawable/gradient_no_curve_gray}"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:paddingLeft="24dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="24dp"
+                            android:paddingBottom="8dp"
+                            android:text="MONTH"
+                            android:textColor="@{viewModel.selectedModeMonth==1?@color/white:@color/text_color}" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line_curved"
+                            android:backgroundTint="@color/color_gray" />
+
+                        <TextView
+                            android:id="@+id/txtAllTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@{viewModel.selectedModeMonth==2?@drawable/gradient_curved_right_pink:@drawable/gradient_curved_right_gray}"
+                            android:clickable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:paddingLeft="24dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="24dp"
+                            android:paddingBottom="8dp"
+                            android:text="ALL TIME"
+                            android:textColor="@{viewModel.selectedModeMonth==2?@color/white:@color/text_color}" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/chartImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutActivity"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_sample_chart" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chartImg"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/txtTitleUpskilling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosemibold"
+                        android:text="@string/upskillings"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:src="@drawable/ic_three_dot" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtTitleUpskilling"
+                        android:layout_marginTop="@dimen/margin_top_view"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <include layout="@layout/item_subject_upskilling" />
+
+                            <include layout="@layout/item_subject_upskilling" />
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_arrow_black" />
+
+        <ImageView
+            android:id="@+id/btnSettings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            android:padding="4dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_setting" />
+
+
+    </RelativeLayout>
+</layout>
