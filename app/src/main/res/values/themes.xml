@@ -134,4 +134,18 @@
         rows than the previous one. Default value is 200. To disable the animation, set this value to zero. -->
         <attr name="cv_wrappedPageHeightAnimationDuration" format="integer" />
     </declare-styleable>
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/color_pink</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:weekNumberColor">@color/color_pink</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

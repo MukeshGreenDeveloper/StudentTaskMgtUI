@@ -1,9 +1,8 @@
 package mukesh.login
 
-import android.animation.ValueAnimator
+import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -15,29 +14,27 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.animation.doOnEnd
-import androidx.core.animation.doOnStart
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
-import androidx.core.view.updateLayoutParams
 import androidx.databinding.DataBindingUtil
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import mukesh.login.calendar.model.CalendarDay
 import mukesh.login.calendar.model.DayOwner
-import mukesh.login.calendar.model.InDateStyle
 import mukesh.login.calendar.ui.DayBinder
 import mukesh.login.calendar.ui.ViewContainer
-import mukesh.login.calendar.utils.next
 import mukesh.login.calendar.utils.yearMonth
 import mukesh.login.databinding.ActivityCalendarBinding
+import mukesh.login.databinding.DialogAddMeetingBinding
 import mukesh.login.databinding.Example1CalendarDayBinding
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
-import java.time.format.TextStyle
 import java.time.temporal.WeekFields
 import java.util.*
+
 
 interface HasToolbar {
     val toolbar: Toolbar? // Return null to hide the toolbar
@@ -54,7 +51,8 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private val monthTitleFormatter = DateTimeFormatter.ofPattern("MMMM")
-    lateinit var binding:ActivityCalendarBinding
+    lateinit var binding: ActivityCalendarBinding
+    var oldTextView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,21 +61,16 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
             lifecycleOwner = this@CalendarActivity
 //            viewModel = vm
         }
-        val daysOfWeek = daysOfWeekFromLocale()
-        binding.legendLayout.root.children.forEachIndexed { index, view ->
-            (view as TextView).apply {
-                text = daysOfWeek[index].getDisplayName(TextStyle.SHORT, Locale.ENGLISH).toUpperCase(
-                    Locale.ENGLISH)
-//                setTextColorRes(R.color.example_1_white_light)
-            }
+        binding.layoutChildMeeting.addItemMeeting.setOnClickListener {
+            showBottomSheet()
         }
-
+/*Calender View Initial Setup Data*/
+        val daysOfWeek = daysOfWeekFromLocale()
         val currentMonth = YearMonth.now()
         val startMonth = currentMonth.minusMonths(10)
         val endMonth = currentMonth.plusMonths(10)
         binding.exOneCalendar.setup(startMonth, endMonth, daysOfWeek.first())
         binding.exOneCalendar.scrollToMonth(currentMonth)
-
         class DayViewContainer(view: View) : ViewContainer(view) {
             // Will be set when this container is bound. See the dayBinder.
             lateinit var day: CalendarDay
@@ -106,8 +99,18 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
                 if (day.owner == DayOwner.THIS_MONTH) {
                     when {
                         selectedDates.contains(day.date) -> {
-                            textView.setTextColorRes(R.color.white)
-                            textView.setBackgroundResource(R.drawable.example_1_selected_bg)
+                            if (oldTextView != null) {
+                                oldTextView?.apply {
+                                    setTextColorRes(R.color.black)
+                                    background = null
+                                }
+                            }
+                            textView.apply {
+                                setTextColorRes(R.color.white)
+                                setBackgroundResource(R.drawable.example_1_selected_bg)
+                                oldTextView = this
+                            }
+
                         }
                         today == day.date -> {
                             textView.setTextColorRes(R.color.example_1_white)
@@ -128,7 +131,9 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
         binding.exOneCalendar.monthScrollListener = {
             if (binding.exOneCalendar.maxRowCount == 6) {
                 binding.exOneYearText.text = it.yearMonth.year.toString()
-                binding.exOneMonthText.text = monthTitleFormatter.format(it.yearMonth)
+//                binding.exOneMonthText.text = monthTitleFormatter.format(it.yearMonth)
+                val month = monthTitleFormatter.format(it.yearMonth)
+                updateMonth(month)
             } else {
                 // In week mode, we show the header a bit differently.
                 // We show indices with dates from different months since
@@ -137,83 +142,52 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
                 val firstDate = it.weekDays.first().first().date
                 val lastDate = it.weekDays.last().last().date
                 if (firstDate.yearMonth == lastDate.yearMonth) {
-                    binding.exOneYearText.text = firstDate.yearMonth.year.toString()
-                    binding.exOneMonthText.text = monthTitleFormatter.format(firstDate)
+                    val month = firstDate.yearMonth.year.toString()
+//                    binding.exOneMonthText.text = monthTitleFormatter.format(firstDate)
+                    updateMonth(month)
                 } else {
-                    binding.exOneMonthText.text =
-                        "${monthTitleFormatter.format(firstDate)} - ${monthTitleFormatter.format(lastDate)}"
+                    val month =
+                        "${monthTitleFormatter.format(firstDate)} - ${
+                            monthTitleFormatter.format(
+                                lastDate
+                            )
+                        }"
+                    updateMonth(month)
                     if (firstDate.year == lastDate.year) {
                         binding.exOneYearText.text = firstDate.yearMonth.year.toString()
                     } else {
-                        binding.exOneYearText.text = "${firstDate.yearMonth.year} - ${lastDate.yearMonth.year}"
+                        binding.exOneYearText.text =
+                            "${firstDate.yearMonth.year} - ${lastDate.yearMonth.year}"
                     }
                 }
             }
         }
 
-        binding.weekModeCheckBox.setOnCheckedChangeListener { _, monthToWeek ->
-            val firstDate = binding.exOneCalendar.findFirstVisibleDay()?.date ?: return@setOnCheckedChangeListener
-            val lastDate = binding.exOneCalendar.findLastVisibleDay()?.date ?: return@setOnCheckedChangeListener
+    }
 
-            val oneWeekHeight = binding.exOneCalendar.daySize.height
-            val oneMonthHeight = oneWeekHeight * 6
-
-            val oldHeight = if (monthToWeek) oneMonthHeight else oneWeekHeight
-            val newHeight = if (monthToWeek) oneWeekHeight else oneMonthHeight
-
-            // Animate calendar height changes.
-            val animator = ValueAnimator.ofInt(oldHeight, newHeight)
-            animator.addUpdateListener { animator ->
-                binding.exOneCalendar.updateLayoutParams {
-                    height = animator.animatedValue as Int
-                }
+    private fun updateMonth(month: String?) {
+        binding.layoutMonths.children.forEach {
+            if (month?.lowercase().toString()
+                    .contains((it as TextView).text.toString().lowercase())
+            ) {
+                (it as TextView).setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    0,
+                    R.drawable.line_curved_pink,
+                )
+                binding.hScrollMonths.scrollTo(it.getX().toInt(), 0)
+            } else {
+                (it as TextView).setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    0,
+                    0,
+                )
             }
-
-            // When changing from month to week mode, we change the calendar's
-            // config at the end of the animation(doOnEnd) but when changing
-            // from week to month mode, we change the calendar's config at
-            // the start of the animation(doOnStart). This is so that the change
-            // in height is visible. You can do this whichever way you prefer.
-
-            animator.doOnStart {
-                if (!monthToWeek) {
-                    binding.exOneCalendar.updateMonthConfiguration(
-                        inDateStyle = InDateStyle.ALL_MONTHS,
-                        maxRowCount = 6,
-                        hasBoundaries = true
-                    )
-                }
-            }
-            animator.doOnEnd {
-                if (monthToWeek) {
-                    binding.exOneCalendar.updateMonthConfiguration(
-                        inDateStyle = InDateStyle.FIRST_MONTH,
-                        maxRowCount = 1,
-                        hasBoundaries = false
-                    )
-                }
-
-                if (monthToWeek) {
-                    // We want the first visible day to remain
-                    // visible when we change to week mode.
-                    binding.exOneCalendar.scrollToDate(firstDate)
-                } else {
-                    // When changing to month mode, we choose current
-                    // month if it is the only one in the current frame.
-                    // if we have multiple months in one frame, we prefer
-                    // the second one unless it's an outDate in the last index.
-                    if (firstDate.yearMonth == lastDate.yearMonth) {
-                        binding.exOneCalendar.scrollToMonth(firstDate.yearMonth)
-                    } else {
-                        // We compare the next with the last month on the calendar so we don't go over.
-                        binding.exOneCalendar.scrollToMonth(minOf(firstDate.yearMonth.next, endMonth))
-                    }
-                }
-            }
-            animator.duration = 250
-            animator.start()
         }
     }
+
     fun daysOfWeekFromLocale(): Array<DayOfWeek> {
         val firstDayOfWeek = WeekFields.of(Locale.getDefault()).firstDayOfWeek
         var daysOfWeek = DayOfWeek.values()
@@ -226,39 +200,83 @@ class CalendarActivity : AppCompatActivity(), HasToolbar {
         }
         return daysOfWeek
     }
-fun View.makeVisible() {
-    visibility = View.VISIBLE
-}
 
-fun View.makeInVisible() {
-    visibility = View.INVISIBLE
-}
+    fun View.makeVisible() {
+        visibility = View.VISIBLE
+    }
 
-fun View.makeGone() {
-    visibility = View.GONE
-}
+    fun View.makeInVisible() {
+        visibility = View.INVISIBLE
+    }
 
-fun dpToPx(dp: Int, context: Context): Int =
-    TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(),
-        context.resources.displayMetrics
-    ).toInt()
+    fun View.makeGone() {
+        visibility = View.GONE
+    }
 
-internal fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
-    return context.layoutInflater.inflate(layoutRes, this, attachToRoot)
-}
+    fun dpToPx(dp: Int, context: Context): Int =
+        TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(),
+            context.resources.displayMetrics
+        ).toInt()
 
-internal val Context.layoutInflater: LayoutInflater
-    get() = LayoutInflater.from(this)
+    internal fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
+        return context.layoutInflater.inflate(layoutRes, this, attachToRoot)
+    }
 
-internal val Context.inputMethodManager
-    get() = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    internal val Context.layoutInflater: LayoutInflater
+        get() = LayoutInflater.from(this)
 
-internal inline fun Boolean?.orFalse(): Boolean = this ?: false
+    internal val Context.inputMethodManager
+        get() = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-internal fun Context.getDrawableCompat(@DrawableRes drawable: Int) = ContextCompat.getDrawable(this, drawable)
+    internal inline fun Boolean?.orFalse(): Boolean = this ?: false
 
-internal fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, color)
+    internal fun Context.getDrawableCompat(@DrawableRes drawable: Int) =
+        ContextCompat.getDrawable(this, drawable)
 
-internal fun TextView.setTextColorRes(@ColorRes color: Int) = setTextColor(context.getColorCompat(color))
+    internal fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, color)
+
+    internal fun TextView.setTextColorRes(@ColorRes color: Int) =
+        setTextColor(context.getColorCompat(color))
+
+    lateinit var dialogAddEventBinding: DialogAddMeetingBinding
+    lateinit var dialog: BottomSheetDialog
+    private fun showBottomSheet() {
+        dialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.dialog_add_meeting, null)
+        dialogAddEventBinding = DialogAddMeetingBinding.inflate(layoutInflater)
+        dialog.setContentView(dialogAddEventBinding.getRoot())
+        dialogAddEventBinding.btnAddEvent.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialogAddEventBinding.timeImgEvent.setOnClickListener {
+            showTimePicker()
+        }
+        dialogAddEventBinding.timeTxtEvent.setOnClickListener {
+            showTimePicker()
+        }
+        dialog.show()
+    }
+
+    fun showTimePicker() {
+        val mcurrentTime = Calendar.getInstance()
+        val hour = mcurrentTime[Calendar.HOUR_OF_DAY]
+        val minute = mcurrentTime[Calendar.MINUTE]
+        val mTimePicker: TimePickerDialog
+        mTimePicker = TimePickerDialog(
+            this@CalendarActivity,
+            { timePicker, selectedHour, selectedMinute ->
+                dialogAddEventBinding.timeTxtEvent.setText(
+                    (if (selectedHour > 12) (selectedHour - 12).toString() else selectedHour.toString())
+                            + ":$selectedMinute " + (if (selectedHour >= 12) "PM" else "AM")
+                )
+            },
+            hour,
+            minute,
+            false
+        ) //Yes 24 hour time
+
+        mTimePicker.setTitle("Select Time")
+        mTimePicker.show()
+    }
 }

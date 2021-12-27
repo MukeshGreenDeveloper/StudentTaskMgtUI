@@ -58,7 +58,8 @@ class LoginActivity : AppCompatActivity() {
         val view = layoutInflater.inflate(R.layout.dialog_gdpr, null)
         dialogGdprBinding = DialogGdprBinding.inflate(layoutInflater)
         dialog.setContentView(dialogGdprBinding.getRoot())
-//        dialogGdprBinding.selectedOption = 1
+        dialogGdprBinding.selectedOption = 1
+        hideYourSelection(1)
         dialogGdprBinding.txtPush.setOnClickListener {
             dialogGdprBinding.selectedOption = 1
             doYourAnimation(R.anim.bounce, dialogGdprBinding.phoneImg)

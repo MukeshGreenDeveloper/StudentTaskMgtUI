@@ -50,4 +50,19 @@
     <string name="end_date">End date</string>
     <string name="clear">Clear</string>
     <string name="week_mode">Week mode</string>
+    <string name="new_event">New Event</string>
+    <string name="title_here">Title here</string>
+    <string name="add_event">Add Event</string>
+    <string name="jan">JAN</string>
+    <string name="feb">FEB</string>
+    <string name="mar">MAR</string>
+    <string name="apr">APR</string>
+    <string name="may">MAY</string>
+    <string name="jun">JUN</string>
+    <string name="jul">JUL</string>
+    <string name="dec">DEC</string>
+    <string name="nov">NOV</string>
+    <string name="oct">OCT</string>
+    <string name="aug">AUG</string>
+    <string name="sep">SEP</string>
 </resources>

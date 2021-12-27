@@ -26,19 +26,155 @@
                     android:id="@+id/exOneYearText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunitosemibold"
+                    android:fontFamily="@font/nunitobold"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     tools:text="2019" />
 
-                <TextView
-                    android:id="@+id/exOneMonthText"
-                    android:layout_width="wrap_content"
+                <HorizontalScrollView
+                    android:id="@+id/hScrollMonths"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunitosemibold"
-                    android:textColor="@color/black"
-                    android:textSize="38sp"
-                    tools:text="April" />
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/layoutMonths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/jantxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/jan"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/febtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/feb"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/martxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/mar"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/aprltxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/apr"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/maytxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/may"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/junetxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/jun"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/julytxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/jul"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/augtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/aug"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/septxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/sep"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/octtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/oct"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/novtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/nov"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/dectxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="@font/nunitosemibold"
+                            android:gravity="center"
+                            android:text="@string/dec"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </HorizontalScrollView>
 
             </LinearLayout>
 
@@ -47,7 +183,6 @@
                 layout="@layout/calendar_day_legend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp" />
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -68,24 +203,13 @@
                 app:cv_outDateStyle="endOfRow"
                 app:cv_scrollMode="paged" />
 
-            <CheckBox
-                android:id="@+id/weekModeCheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="20dp"
-                android:buttonTint="@color/example_1_white"
-                android:padding="2dp"
-                android:text="@string/week_mode"
-                android:textColor="@color/example_1_white"
-                android:textSize="18sp" />
-
         </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layoutCalender"
+            android:layout_height="match_parent"
+            android:layout_below="@id/layoutCalender"
+            android:layout_alignParentBottom="true"
             android:background="@color/color_pink">
 
             <TextView
@@ -99,95 +223,32 @@
                 android:textColor="@color/white"
                 android:textSize="17dp" />
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/titleUpcoming"
                 android:layout_marginTop="@dimen/margin_top_view"
-                android:orientation="vertical"
-                android:paddingStart="24dp"
-                android:paddingEnd="24dp">
+                android:scrollbars="none">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp">
 
-                    <RelativeLayout
-                        android:id="@+id/circleCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                    <include
+                        android:id="@+id/layoutChildMeeting"
+                        layout="@layout/item_meeting" />
+                    <!--<include layout="@layout/item_meeting"/>
+                    <include layout="@layout/item_meeting"/>
+                    <include layout="@layout/item_meeting"/>
+                    <include layout="@layout/item_meeting"/>
+                    <include layout="@layout/item_meeting"/>
+                    <include layout="@layout/item_meeting"/>-->
+                </LinearLayout>
+            </ScrollView>
 
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/circle_white" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="11"
-                            android:textColor="@color/color_pink" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/txtMeeting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_toEndOf="@+id/circleCount"
-                        android:fontFamily="@font/nunitosemibold"
-                        android:text="Meeting"
-                        android:textColor="@color/white"
-                        android:textSize="16dp" />
-
-                    <ImageView
-                        android:layout_width="2dp"
-                        android:layout_height="60dp"
-                        android:layout_below="@+id/circleCount"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/line_white_dotted" />
-
-                    <TextView
-                        android:id="@+id/txtTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtMeeting"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_toEndOf="@+id/circleCount"
-                        android:fontFamily="@font/nunitoregular"
-                        android:text="12.30 pm"
-                        android:textColor="@color/white_light"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:id="@+id/txtConference"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtTime"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@+id/circleCount"
-                        android:fontFamily="@font/nunitosemibold"
-                        android:text="Conference"
-                        android:textColor="@color/white"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtConference"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_toEndOf="@+id/circleCount"
-                        android:fontFamily="@font/nunitoregular"
-                        android:text="3.30 pm"
-                        android:textColor="@color/white_light"
-                        android:textSize="12dp" />
-
-                </RelativeLayout>
-            </LinearLayout>
         </RelativeLayout>
 
     </RelativeLayout>

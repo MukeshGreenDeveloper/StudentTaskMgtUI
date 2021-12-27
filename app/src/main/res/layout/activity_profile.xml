@@ -45,7 +45,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/nunitosemibold"
-                    android:text="Maria L Joshi"
+                    android:text="Tamil Selvan B"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 

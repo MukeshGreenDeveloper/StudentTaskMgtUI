@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_pink"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:paddingTop="16dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/addItemMeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/delItemMeeting"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_plus" />
+
+        <ImageView
+            android:layout_marginStart="16dp"
+            android:id="@+id/delItemMeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_trash" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/circleCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/circle_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="11"
+            android:textColor="@color/color_pink" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtMeeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/circleCount"
+        android:fontFamily="@font/nunitosemibold"
+        android:text="Meeting"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:layout_width="2dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/circleCount"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/line_white_dotted" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMeeting"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/circleCount"
+        android:fontFamily="@font/nunitoregular"
+        android:text="12.30 pm"
+        android:textColor="@color/white_light"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txtConference"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTime"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/circleCount"
+        android:fontFamily="@font/nunitosemibold"
+        android:text="Conference"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtConference"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/circleCount"
+        android:fontFamily="@font/nunitoregular"
+        android:text="3.30 pm"
+        android:textColor="@color/white_light"
+        android:textSize="12dp" />
+
+</RelativeLayout>
