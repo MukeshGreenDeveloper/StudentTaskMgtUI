@@ -280,18 +280,25 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-                <ImageView
+              <!--  <ImageView
                     android:id="@+id/chartImg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/layoutActivity"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_sample_chart" />
+-->
 
+                <mukesh.login.chart.aachartcreator.AAChartView
+                    android:id="@+id/AAChartView"
+                    android:layout_width="match_parent"
+                    android:layout_height="189dp"
+                    android:layout_below="@+id/layoutActivity"
+                    android:background="@color/aaChartCoreThemeColor" />
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/chartImg"
+                    android:layout_below="@+id/AAChartView"
                     android:padding="24dp">
 
                     <TextView
